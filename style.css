@@ -1,0 +1,126 @@
+body{
+    background: linear-gradient(rgba(33, 1, 33, 0.956),rgb(4,1,39));
+    margin: 0%;
+    border-radius: 5px;
+}
+
+.topnav {
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: rgba(202, 10, 202, 0.956);
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+h1{
+    margin: auto;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background-color: rgba(86, 6, 82, 0.825);
+}
+table{
+    margin: auto;
+    text-align: center;
+    table-layout: auto;
+}
+table,td{
+    align-items: center;
+    width: 500px;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    border-collapse: collapse;
+} 
+
+thead th{
+    color: aqua;
+}
+
+#taskTableBody tr{
+    text-align: center;
+    color: beige;
+    border: 2px solid whitesmoke;
+}
+
+.btn-edit{
+    background-color: rgba(225, 63, 225, 0.956);
+}
+
+.btn-delete{
+    background-color: rgba(202, 10, 202, 0.956);
+}
+
+.btn-delete ion-icon,
+.btn-edit ion-icon{
+    pointer-events: none;
+}
+label {
+    display: block;
+    color: #f2f2f2;
+    font: 1rem ;
+}
+
+input,label {
+    margin: 0.4rem 0;
+}
+form .form-group{
+    display: flex;
+    flex-direction: column;
+}
+#title{
+    margin-top: 0px;
+    background-color: rgba(33, 1, 33, 0.956);
+    width: 250px;
+    height: 25px;
+    color: #f2f2f2;
+    border-radius: 5px;
+}
+
+#description{
+    background-color: rgba(33, 1, 33, 0.956);
+    width: 100%;
+    height: 150px;
+    color: #f2f2f2;
+    text-align: top;
+    border-radius: 5px;
+}
+
+.submit{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 25px;
+    color: #f2f2f2;
+    background-color: rgba(225, 63, 225, 0.956);
+    border-radius: 5px;
+    font-size: larger;
+    font-weight: 200;
+}
+
+video{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    width: 80%;   /* adjust size */
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}

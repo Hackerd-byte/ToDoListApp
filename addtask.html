@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddTask</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="addtask.html">AddTask</a>
+        <a href="list.html">ToDoList</a>
+        <a href="#">About</a>
+    </div>
+    <h1>Add Task</h1>
+    <form action="#" id="task_form" class="task-form">
+        <input type="hidden" id="id" />
+        <div class="form-group">
+            <label for="name">Title of the Task:</label>
+            <input type="text" id="title" name="taskName" minlength="4" maxlength="100" size="12" placeholder="Enter title of task "/>
+        </div>
+        <div class="form-group">
+            <label for="name">Task Description:</label>
+            <textarea name="taskDescription" id="description" placeholder="Enter here"></textarea>
+        </div>
+        <button type="submit" class="submit" ><ion-icon name="add-circle-outline"></ion-icon></button>
+    </form>
+</body>
+<script src="app.js" type="module"></script>
+<script>
+    let save=document.getElementsByClassName('task_form');
+    let title=document.getElementById('title');
+    let description=document.getElementById('description');
+
+    title.addEventListener('keydown',function(e){
+        if (e.key==='Enter'){
+            e.preventDefault();
+            description.focus();
+        }
+    })
+    
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</html>
