@@ -60,11 +60,14 @@ thead th{
 }
 
 .btn-edit{
-    background-color: rgba(225, 63, 225, 0.956);
+    background-color: rgba(202, 10, 202, 0.956);
 }
 
 .btn-delete{
-    background-color: rgba(202, 10, 202, 0.956);
+    background-color: rgba(225, 63, 225, 0.956);
+}
+.btn-status{
+    background-color: rgba(222, 50, 214, 0.825);
 }
 
 .btn-delete ion-icon,
@@ -118,7 +121,7 @@ form .form-group{
 video{
     flex: 1;
     display: flex;
-    justify-content: center;
+    margin: 10px auto; 
     width: 80%;   /* adjust size */
     max-width: 500px;
     border-radius: 12px;

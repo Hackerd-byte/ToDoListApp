@@ -126,6 +126,11 @@ if (document.querySelector('#taskTableBody')) {
                     <td>${currentTaskValue.desc}</td>
                     <td>${currentTaskValue.time}</td>
                     <td>
+                        <button class="btn-status" data-id="${currentTaskId}" href="addtask.html">
+                            <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+                        </button>
+                    </td>
+                    <td>
                         <button class="btn-edit" data-id="${currentTaskId}" href="addtask.html">
                             <ion-icon name="create-outline"></ion-icon>
                         </button>
@@ -144,4 +149,5 @@ if (document.querySelector('#taskTableBody')) {
     });
     
 }
+//<ion-icon name="checkmark-sharp"></ion-icon>
 
