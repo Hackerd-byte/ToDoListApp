@@ -2,18 +2,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDoList</title>
+    <title>CompletedTaskList</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="topnav" data-aos="fade-up" data-aos-delay="100">
+    <div class="topnav">
         <a href="index.html">Home</a>
         <a href="addtask.html">AddTask</a>
         <a href="list.html">ToDoList</a>
         <a href="complete.html">CompletedList</a>
         <a href="about.html">About</a>
     </div>
-    <h1>TO DO LIST</h1>
+    <div class="top">
+        <h1>Completed Task</h1>
+    </div>
     <table border="1">
         <thead>
             <tr> 
@@ -21,12 +23,11 @@
                 <th>Title</th>
                 <th>Description</th>
                 <th>Time</th>
+                <th>Date</th>
                 <th>Status</th>
-                <th>Edit</th>
-                <th>Delete</th>
             </tr>
         </thead>
-        <tbody id="taskTableBody">
+        <tbody id="CompletetaskTableBody">
         </tbody>
     </table>
 </body>

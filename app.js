@@ -7,7 +7,7 @@ const appSetting={
 const app=initializeApp(appSetting);
 const database=getDatabase(app);
 const tasksListInDB=ref(database,"tasks");
-
+const completedTask=ref(database,"donelist");
 
 // form page
 if (document.querySelector('.task-form')) {
@@ -20,14 +20,14 @@ if (document.querySelector('.task-form')) {
     const editId = params.get("idEl");
     const editTitle = params.get("titleEl");
     const editDesc = params.get("descEl");
-    console.log(editId);
+    // console.log(editId);
 
     // If edit mode, set values
     if (editId) {
         idEl.value= editId;
         titleEl.value = editTitle;
         descEl.value = editDesc;
-        console.log(titleEl.value,descEl.value);
+        // console.log(titleEl.value,descEl.value);
     }
 
     frm.addEventListener("submit", function(e) {
@@ -73,9 +73,49 @@ if (document.querySelector('#taskTableBody')) {
     const tblEl = document.querySelector('#taskTableBody');
     
 
-    document.addEventListener('click',function(e){
+    tblEl.addEventListener('click',function(e){
         e.preventDefault();
-        if (e.target.classList.contains('btn-edit')){
+
+
+        if (e.target.classList.contains('btn-status')){
+            let now = new Date();
+            let crnttime = now.toLocaleTimeString();
+            let crntdate=now.toDateString();
+            e.preventDefault();
+            const id=e.target.dataset.id;
+            let data=ref(database,`tasks/${id}`);
+            onValue(data,(snapshot)=>{
+                const Data=snapshot.val();
+                console.log(
+                    Data,
+                    Data.name,
+
+                );
+                const DoneList={
+                    name:Data.name || 'No Name',
+                    desc:Data.desc || 'No Description',
+                    date:crntdate,
+                    time:crnttime,
+                };
+                console.log(Data.name);
+                if(confirm('Are you completed this Task?')){
+                    push(completedTask,DoneList).then(() => {
+                        alert("Task compeleted successfully!");
+                        window.location.href='complete.html';
+                        })
+                        .catch((error) => {
+                            // console.error("Error deleting task:", error);
+                            alert("Failed to add compeleted task list.");
+                        });
+                    remove(ref(database,`tasks/${id}`)).then(()=>{
+                        alert("Congratultions!!!");
+                    });
+                }
+            });
+            
+            
+        }
+        else if (e.target.classList.contains('btn-edit')){
             const id=e.target.dataset.id;
             let data=ref(database,`tasks/${id}`);
             onValue(data,(snapshot)=>{
@@ -93,14 +133,14 @@ if (document.querySelector('#taskTableBody')) {
 
             // console.log('Edit',id);
             if (confirm("Are you sure to Delete?")){
-                console.log(id);
+                // console.log(id);
                 let data=ref(database,`tasks/${id}`);
-                console.log(id,data);
+                // console.log(id,data);
                 remove(ref(database,`tasks/${id}`)).then(() => {
                     alert("Task deleted successfully!");
                 })
                 .catch((error) => {
-                    console.error("Error deleting task:", error);
+                    // console.error("Error deleting task:", error);
                     alert("Failed to delete task.");
                 });
             }
@@ -126,12 +166,11 @@ if (document.querySelector('#taskTableBody')) {
                     <td>${currentTaskValue.desc}</td>
                     <td>${currentTaskValue.time}</td>
                     <td>
-                        <button class="btn-status" data-id="${currentTaskId}" href="addtask.html">
-                            <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
-                        </button>
+                        <button class="btn-status" data-id="${currentTaskId}">                        
+                            <ion-icon name="checkmark-sharp"></ion-icon>                  
                     </td>
                     <td>
-                        <button class="btn-edit" data-id="${currentTaskId}" href="addtask.html">
+                        <button class="btn-edit" data-id="${currentTaskId}">
                             <ion-icon name="create-outline"></ion-icon>
                         </button>
                     </td>
@@ -144,10 +183,43 @@ if (document.querySelector('#taskTableBody')) {
                 `;
             }
         } else {
-            tblEl.innerHTML = "<tr><td colspan='5'>No Record Found</td></tr>";
+            tblEl.innerHTML = "<tr><td colspan='7'>No Record Found</td></tr>";
         }
     });
     
 }
-//<ion-icon name="checkmark-sharp"></ion-icon>
+
+//<ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+
+
+if(document.querySelector('#CompletetaskTableBody')){
+    const tblEl = document.querySelector('#CompletetaskTableBody');
+    onValue(completedTask, function(snapshot) {
+        if (snapshot.exists()) {
+            let taskArray=Object.entries(snapshot.val());
+            console.log(taskArray);
+            tblEl.innerHTML="";
+            for(let i=0;i<taskArray.length;i++){
+                let currentTask=taskArray[i];
+                console.log(currentTask);
+                let currentTaskValue=currentTask[1];
+ 
+
+                tblEl.innerHTML +=`
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${currentTaskValue.name}</td>
+                    <td>${currentTaskValue.desc}</td>
+                    <td>${currentTaskValue.time}</td>
+                    <td>${currentTaskValue.date}</td>
+                    <td>Completed</td>
+                </tr>
+                `;
+            }
+        } else {
+            tblEl.innerHTML = "<tr><td colspan='6'>No Record Found</td></tr>";
+        }
+    });
+
+}
 

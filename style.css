@@ -53,23 +53,26 @@ thead th{
     color: aqua;
 }
 
-#taskTableBody tr{
+#taskTableBody tr,#CompletetaskTableBody tr{
     text-align: center;
     color: beige;
     border: 2px solid whitesmoke;
 }
 
+.btn-status{
+    background-color: rgba(237, 44, 237, 0.956) ;
+}
+
 .btn-edit{
-    background-color: rgba(202, 10, 202, 0.956);
+    background-color: rgba(210, 42, 210, 0.956);
 }
 
 .btn-delete{
-    background-color: rgba(225, 63, 225, 0.956);
-}
-.btn-status{
-    background-color: rgba(222, 50, 214, 0.825);
+    background-color: rgba(191, 30, 191, 0.956);
 }
 
+
+.btn-status ion-icon,
 .btn-delete ion-icon,
 .btn-edit ion-icon{
     pointer-events: none;
@@ -121,7 +124,7 @@ form .form-group{
 video{
     flex: 1;
     display: flex;
-    margin: 10px auto; 
+    margin: 10px auto;
     width: 80%;   /* adjust size */
     max-width: 500px;
     border-radius: 12px;
