@@ -31,16 +31,12 @@ body{
 }
 
 .top{
-    color: rgba(225, 209, 209, 0.885);
+    color: rgba(255, 252, 252, 0.885);
     text-align: center;
-    background-color: rgba(86, 6, 82, 0.825);
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px;
+    background-color: rgba(86, 6, 82, 0.956);
     width: 100%;
     box-sizing: border-box;
-    display: block;
-    
+    display: block;    
 }
 table{
     margin: auto;
