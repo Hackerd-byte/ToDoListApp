@@ -31,10 +31,16 @@ body{
 }
 
 .top{
-    margin: auto;
     color: rgba(225, 209, 209, 0.885);
     text-align: center;
     background-color: rgba(86, 6, 82, 0.825);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    
 }
 table{
     margin: auto;
