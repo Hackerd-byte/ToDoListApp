@@ -53,12 +53,15 @@ table,td{
 
 thead th{
     color: aqua;
-}
+} 
 
-#taskTableBody tr,#CompletetaskTableBody tr{
+
+.table-body tr td,.table-head tr th{
     text-align: center;
     color: beige;
-    border: 2px solid whitesmoke;
+    border: solid whitesmoke;
+    border-width: 2px;
+
 }
 
 .btn-status{
